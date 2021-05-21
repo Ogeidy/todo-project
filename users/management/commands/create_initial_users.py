@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+
 from users.models import User
 
 
@@ -7,11 +8,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print("Creating...")
-
-        admin = User(username="admin", email="admin@example.com", is_superuser=True, is_staff=True)
-        admin.set_password("test")
-        admin.save()
+        User.objects.create_superuser(username="admin", email="admin@example.com", password="test")
         for i in range(2):
-            user = User(username=f"test{i}", email=f"test{i}@example.com")
-            user.save()
+            User.objects.create_user(username=f"test{i}", email=f"test{i}@example.com", password="test")
         print("Done!")
