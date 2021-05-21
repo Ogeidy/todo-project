@@ -3,20 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      'authors': []
+    constructor(props) {
+        super(props);
+        this.state = {
+            'users': []
+        }
+        console.log(this)
     }
-  }
 
-  render() {
-    return (
-      <div>
-        Main App
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <p>Main App</p>
+            </div>
+        )
+    }
 
 }
 
