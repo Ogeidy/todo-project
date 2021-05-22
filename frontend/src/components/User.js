@@ -1,4 +1,5 @@
 import React from 'react'
+import './User.css'
 
 
 const UserItem = ({ user }) => {
@@ -25,28 +26,30 @@ const UserItem = ({ user }) => {
 
 const UserList = ({ users }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        Id
-                    </th>
-                    <th>
-                        Username
-                    </th>
-                    <th>
-                        First name
-                    </th>
-                    <th>
-                        Last Name
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                </tr>
-            </thead>
-            <tbody>{users.map((user) => <UserItem user={user} key={user.id} />)}</tbody>
-        </table>
+        <div className="user_list">
+            <table className="user_table">
+                <thead className="table_head">
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            First name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                    </tr>
+                </thead>
+                <tbody className="table_body">{users.map((user) => <UserItem user={user} key={user.id} />)}</tbody>
+            </table>
+        </div>
     )
 }
 
