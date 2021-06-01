@@ -1,9 +1,9 @@
-.user_list {
+.list {
     padding: 20px 40px;
     margin-bottom: auto;
 }
 
-.user_table {
+.table {
     width: 100%;
     border: black solid 1px;
     border-collapse: collapse;
@@ -17,11 +17,11 @@
     background-color: rgb(248, 246, 242);
 }
 
-.user_table th{
+.table th{
     border: 1px solid rgb(0, 0, 0);
 }
 
-.user_table td {
+.table td {
     border: 1px solid rgb(160, 154, 143);
     padding: 2px 5px;
 }
