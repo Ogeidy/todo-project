@@ -1,65 +1,39 @@
-import React from 'react'
-import './Table.css'
+import React from "react";
+import "./Table.css";
 
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const NoteItem = ({ note }) => {
     return (
-        <tr>
-            <td>
-                {note.id}
-            </td>
-            <td>
-                {note.name}
-            </td>
-            <td>
-                {note.author}
-            </td>
-            <td>
-                {note.project}
-            </td>
-            <td>
-                {note.active ? ("Active") : ("Inactive")}
-            </td>
-            <td>
-                {note.creationDate}
-            </td>
-        </tr>
-    )
-}
+        <div className="table_body table_row five_columns row_link">
+            <div className="table_cell">{note.id}</div>
+            <div className="table_cell">{note.name}</div>
+            <div className="table_cell">{note.author}</div>
+            <div className="table_cell">{note.project}</div>
+            <div className="table_cell">{note.active ? "Active" : "Inactive"}</div>
+            <div className="table_cell">{note.creationDate}</div>
+        </div>
+    );
+};
 
 const NoteList = ({ notes }) => {
     return (
         <div className="list">
-            <table className="table">
-                <thead className="table_head">
-                    <tr>
-                        <th>
-                            Id
-                        </th>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Author
-                        </th>
-                        <th>
-                            Project
-                        </th>
-                        <th>
-                            State
-                        </th>
-                        <th>
-                            Creation date
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="table_body">{notes.map((note) => <NoteItem note={note} key={note.id} />)}</tbody>
-            </table>
+            <div className="table">
+                <div className="table_head table_row five_columns">
+                    <div className="table_cell">Id</div>
+                    <div className="table_cell">Name</div>
+                    <div className="table_cell">Author</div>
+                    <div className="table_cell">Project</div>
+                    <div className="table_cell">State</div>
+                    <div className="table_cell">Creation date</div>
+                </div>
+                {notes.map((note) => (
+                    <NoteItem note={note} key={note.id} />
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
 
-
-export default NoteList
+export default NoteList;
