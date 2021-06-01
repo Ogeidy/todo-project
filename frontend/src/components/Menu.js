@@ -1,13 +1,27 @@
-import React from 'react'
-import './Menu.css'
+import React from "react";
+import "./Menu.css";
+import { Link } from "react-router-dom";
 
-const Menu = () =>
+const Menu = () => (
     <nav>
         <ul className="navbar_list">
-            <li><a className="navbar_link" href="#">Users</a></li>
-            <li><a className="navbar_link" href="#">Wip #1</a></li>
-            <li><a className="navbar_link" href="#">Wip #2</a></li>
+            <li>
+                <Link className="navbar_link" to="/">
+                    Users
+                </Link>
+            </li>
+            <li>
+                <Link className="navbar_link" to="/projects">
+                    Projects
+                </Link>
+            </li>
+            <li>
+                <Link className="navbar_link" to="/notes">
+                    Notes
+                </Link>
+            </li>
         </ul>
     </nav>
+);
 
 export default Menu;
