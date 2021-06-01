@@ -6,6 +6,7 @@ import Footer from "./components/Footer.js";
 import UserList from "./components/Users.js";
 import ProjectList from "./components/Projects.js";
 import NoteList from "./components/Notes.js";
+import Project from "./components/Project.js";
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -61,6 +62,9 @@ class App extends React.Component {
                     </Route>
                     <Route exact path="/notes">
                         <NoteList notes={this.state.notes} />
+                    </Route>
+                    <Route path="/project/:id">
+                        <Project projects={this.state.projects} users={this.state.users} notes={this.state.notes} />
                     </Route>
                     <Footer />
                 </BrowserRouter>
