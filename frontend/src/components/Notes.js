@@ -1,8 +1,6 @@
 import React from "react";
 import "./Table.css";
 
-import { Link } from "react-router-dom";
-
 const NoteItem = ({ note }) => {
     return (
         <div className="table_body table_row five_columns row_link">
