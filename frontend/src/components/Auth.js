@@ -5,6 +5,7 @@ class LoginForm extends React.Component {
         super(props);
         this.state = { login: "", password: "" };
     }
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
@@ -13,6 +14,7 @@ class LoginForm extends React.Component {
 
     handleSubmit(event) {
         console.log(this.state.login + " " + this.state.password);
+        this.props.get_token(this.state.login, this.state.password)  
         event.preventDefault();
     }
 

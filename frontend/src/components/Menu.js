@@ -20,6 +20,11 @@ const Menu = () => (
                     Notes
                 </Link>
             </li>
+            <li>
+                <Link className="navbar_link" to="/login">
+                    Login
+                </Link>
+            </li>
         </ul>
     </nav>
 );
