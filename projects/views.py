@@ -1,4 +1,4 @@
-from rest_framework import viewsets, pagination, response, status
+from rest_framework import viewsets, pagination, response, status, permissions
 
 from projects import models, serializers, filters
 
@@ -14,6 +14,7 @@ class NotePagination(pagination.LimitOffsetPagination):
 class ProjectModelViewSet(viewsets.ModelViewSet):
     queryset = models.Project.objects.all()
     serializer_class = serializers.ProjectModelSerializer
+    permission_classes = [permissions.IsAuthenticated]
     pagination_class = ProjectPagination
     filterset_class = filters.ProjectFilter
 
@@ -21,6 +22,7 @@ class ProjectModelViewSet(viewsets.ModelViewSet):
 class NoteModelViewSet(viewsets.ModelViewSet):
     queryset = models.Note.objects.all()
     serializer_class = serializers.NoteModelSerializer
+    permission_classes = [permissions.IsAuthenticated]
     pagination_class = NotePagination
     filterset_class = filters.NoteFilter
 
