@@ -4,7 +4,7 @@
     display: flex;
     margin: 0;
     justify-content: space-around;
-    min-width: 200px;
+    min-width: 300px;
 }
 
 .navbar_link {
@@ -16,4 +16,8 @@
 .navbar_link:hover {
     text-decoration: underline;
     color: #464135;
+}
+
+.navbar_username {
+    font-weight: bold;
 }

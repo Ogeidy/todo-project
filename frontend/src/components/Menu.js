@@ -2,7 +2,7 @@ import React from "react";
 import "./Menu.css";
 import { Link } from "react-router-dom";
 
-const Menu = () => (
+const Menu = ({ username, is_authenticated, logout }) => (
     <nav>
         <ul className="navbar_list">
             <li>
@@ -21,10 +21,15 @@ const Menu = () => (
                 </Link>
             </li>
             <li>
-                <Link className="navbar_link" to="/login">
-                    Login
-                </Link>
+                {is_authenticated() ? (
+                    <Link className="navbar_link" onClick={() => logout()}>Logout</Link>
+                ) : (
+                    <Link className="navbar_link" to="/login">
+                        Login
+                    </Link>
+                )}
             </li>
+            <li><div className="navbar_username">{username}</div></li>
         </ul>
     </nav>
 );
