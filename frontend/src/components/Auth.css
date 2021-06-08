@@ -1,0 +1,18 @@
+.auth_form {
+    margin-bottom: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.auth_input {
+    margin: 0 10px;
+}
+.auth_login_button {
+    background-color: rgb(221, 177, 120);
+    cursor: pointer;
+    border: none;
+}
+
+.auth_login_button:hover {
+    background-color: rgb(223, 222, 219);
+}
