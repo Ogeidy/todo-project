@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework import mixins
 
 from .models import User
@@ -12,4 +12,5 @@ class UserModelViewSet(
     mixins.UpdateModelMixin,
 ):
     queryset = User.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserModelSerializer
