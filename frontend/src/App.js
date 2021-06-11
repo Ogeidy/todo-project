@@ -33,7 +33,7 @@ class App extends React.Component {
 
     componentDidMount() {
         this.get_username_from_storage();
-        this.load_data();
+        this.get_token_from_storage();
     }
 
     get_headers() {
@@ -93,7 +93,7 @@ class App extends React.Component {
     }
 
     is_authenticated() {
-        return this.state.token != "";
+        return this.state.token != "" && this.state.token != undefined;
     }
 
     logout() {
