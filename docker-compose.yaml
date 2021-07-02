@@ -21,7 +21,7 @@ services:
 
   backend:
     build:
-      context: .
+      context: backend/
       target: development
     ports:
       - 8080:8080

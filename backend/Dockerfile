@@ -1,16 +1,13 @@
 FROM python:3.8.6 as base
 
-WORKDIR /project
+WORKDIR /todo-project
 
 RUN apt-get update \
     && apt-get install -y postgresql postgresql-contrib libpq-dev python3-dev
 
 RUN pip3 install --upgrade pip
 
-COPY manage.py requirements.txt ./
-COPY projects/ projects/
-COPY todo/ todo/
-COPY users/ users/
+COPY . ./
 
 RUN pip3 install -r requirements.txt
 
