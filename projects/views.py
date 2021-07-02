@@ -31,3 +31,8 @@ class NoteModelViewSet(viewsets.ModelViewSet):
         note.active = False
         note.save()
         return response.Response(status=status.HTTP_200_OK)
+
+    def get_serializer_class(self):
+        if self.request.method in ["GET"]:
+            return serializers.NoteModelSerializer
+        return serializers.NoteModelSerializerBase

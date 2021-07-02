@@ -10,6 +10,7 @@ class UserModelViewSet(
     mixins.RetrieveModelMixin,
     mixins.ListModelMixin,
     mixins.UpdateModelMixin,
+    mixins.CreateModelMixin,
 ):
     queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticated]
