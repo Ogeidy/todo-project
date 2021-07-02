@@ -10,6 +10,7 @@ from projects.views import ProjectModelViewSet, NoteModelViewSet
 
 router = DefaultRouter()
 router.register("users", UserModelViewSet)
+router.register(prefix=r"(?P<version>\d\.\d)/users", viewset=UserModelViewSet)
 router.register("projects", ProjectModelViewSet)
 router.register("notes", NoteModelViewSet)
 
