@@ -1,4 +1,4 @@
-FROM python:3.8.6
+FROM python:3.8.6 as base
 
 WORKDIR /project
 
@@ -16,3 +16,23 @@ RUN pip3 install -r requirements.txt
 
 COPY wait-for-postgres.sh .
 RUN chmod +x wait-for-postgres.sh
+
+
+
+FROM base as development
+
+CMD bash -c "./wait-for-postgres.sh db \
+      && python manage.py migrate \
+      && python manage.py create_initial_users \
+      && python manage.py runserver 0.0.0.0:8080"
+
+
+
+FROM base as production
+
+RUN pip3 install gunicorn
+
+CMD bash -c "./wait-for-postgres.sh db \
+      && python manage.py migrate \
+      && python manage.py create_initial_users \
+      && gunicorn todo.wsgi -b 0.0.0.0:8080"
