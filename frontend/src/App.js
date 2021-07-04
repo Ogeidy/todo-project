@@ -11,6 +11,8 @@ import LoginForm from "./components/Auth.js";
 import Cookies from "universal-cookie";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+const BACKEND_URL = "http://localhost"
+
 const NotFound404 = ({ location }) => {
     return (
         <div>
@@ -49,7 +51,7 @@ class App extends React.Component {
     load_data() {
         const headers = this.get_headers();
         axios
-            .get("http://127.0.0.1:8000/api/users/", { headers })
+            .get(BACKEND_URL + "/api/users/", { headers })
             .then((response) => {
                 const users = response.data.results;
                 this.setState({
@@ -61,7 +63,7 @@ class App extends React.Component {
                 this.setState({ users: [] });
             });
         axios
-            .get("http://127.0.0.1:8000/api/projects/", { headers })
+            .get(BACKEND_URL + "/api/projects/", { headers })
             .then((response) => {
                 const projects = response.data.results;
                 this.setState({
@@ -73,7 +75,7 @@ class App extends React.Component {
                 this.setState({ projects: [] });
             });
         axios
-            .get("http://127.0.0.1:8000/api/notes/", { headers })
+            .get(BACKEND_URL + "/api/notes/", { headers })
             .then((response) => {
                 const notes = response.data.results;
                 this.setState({
@@ -121,7 +123,7 @@ class App extends React.Component {
 
     get_token(username, password) {
         axios
-            .post("http://127.0.0.1:8000/api/auth-token/", { username: username, password: password })
+            .post(BACKEND_URL + "/api/auth-token/", { username: username, password: password })
             .then((response) => {
                 console.log(response.data);
                 this.set_token(response.data["token"]);
