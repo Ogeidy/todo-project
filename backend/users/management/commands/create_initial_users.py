@@ -11,21 +11,24 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print("Creating...")
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@example.com",
-            password="test",
-            first_name=generate_first_name(),
-            last_name=generate_last_name(),
-        )
-        for i in range(50):
-            User.objects.create_user(
-                username=f"test{i}",
-                email=f"test{i}@example.com",
+        try:
+            User.objects.create_superuser(
+                username="admin",
+                email="admin@example.com",
                 password="test",
                 first_name=generate_first_name(),
                 last_name=generate_last_name(),
             )
+            for i in range(50):
+                User.objects.create_user(
+                    username=f"test{i}",
+                    email=f"test{i}@example.com",
+                    password="test",
+                    first_name=generate_first_name(),
+                    last_name=generate_last_name(),
+                )
+        except Exception as e:
+            print(f"Error: {e}")
         print("Done!")
 
 
