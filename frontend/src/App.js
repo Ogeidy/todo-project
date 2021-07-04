@@ -132,6 +132,15 @@ class App extends React.Component {
             .catch((error) => alert("Incorrect username or password"));
     }
 
+    delete_project(event, id) {
+        event.preventDefault();
+        const headers = this.get_headers()
+        axios.delete(`http://127.0.0.1:8000/api/projects/${id}`, { headers })
+            .then(response => {
+                this.setState({ projects: this.state.projects.filter((item) => item.id !== id) })
+            }).catch(error => console.log(error))
+    }
+
     render() {
         return (
             <div className="App">
@@ -146,7 +155,7 @@ class App extends React.Component {
                             <UserList users={this.state.users} />
                         </Route>
                         <Route exact path="/projects">
-                            <ProjectList projects={this.state.projects} users={this.state.users} />
+                            <ProjectList projects={this.state.projects} users={this.state.users} delete_project={(event, id)=>this.delete_project(event, id)} />
                         </Route>
                         <Route exact path="/notes">
                             <NoteList notes={this.state.notes} />
