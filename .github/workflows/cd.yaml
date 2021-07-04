@@ -31,4 +31,5 @@ jobs:
           key: ${{ secrets.DEPLOY_SERVER_PRIVATE_KEY }}
           script: |
             cd ./todo_project
-            docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up --build
+            docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml build
+            docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d
