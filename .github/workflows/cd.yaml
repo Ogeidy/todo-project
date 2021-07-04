@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Build
+    name: Build and deploy
     runs-on: ubuntu-latest
 
     steps:
