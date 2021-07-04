@@ -11,7 +11,7 @@ import LoginForm from "./components/Auth.js";
 import Cookies from "universal-cookie";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const BACKEND_URL = "http://localhost"
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const NotFound404 = ({ location }) => {
     return (
