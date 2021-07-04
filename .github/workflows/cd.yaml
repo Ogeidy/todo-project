@@ -12,6 +12,11 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
 
+      - name: Configuring frontend
+        run: |
+          cd ./frontend
+          sed -i -e 's/REACT_APP_BACKEND_URL=.*/REACT_APP_BACKEND_URL=http:\/\/${{ secrets.DEPLOY_SERVER_HOST }}/g' .env
+
       - name: Copy project to the server
         uses: appleboy/scp-action@master
         with:
