@@ -6,7 +6,7 @@ const NoteItem = ({ note }) => {
         <div className="table_body table_row five_columns row_link">
             <div className="table_cell">{note.id}</div>
             <div className="table_cell">{note.name}</div>
-            <div className="table_cell">{note.author}</div>
+            <div className="table_cell">{note.author.username}</div>
             <div className="table_cell">{note.project}</div>
             <div className="table_cell">{note.active ? "Active" : "Inactive"}</div>
             <div className="table_cell">{note.creationDate}</div>
