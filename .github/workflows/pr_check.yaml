@@ -1,0 +1,17 @@
+name: Check PR style
+
+on:
+  push:
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print PR title
+        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+
+      - name: Check PR title
+        if: ${{ github.event.pull_request.title == 'Test:*' }}
+        run: echo Cool!
